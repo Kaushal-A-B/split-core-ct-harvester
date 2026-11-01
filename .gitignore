@@ -1,0 +1,5 @@
+*.ans
+*.bmp
+*.log
+octave-workspace
+fig_basics_*.png

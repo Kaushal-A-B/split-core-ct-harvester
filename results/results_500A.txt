@@ -1,0 +1,55 @@
+Line current 500 A rms (707.1 A peak), 50 Hz, N2 = 128
+R1 = 1.047 ohm at 125 C (0.741 at 20 C), steel mass 444.6 g
+
+Open circuit
+  lambda2 peak 0.0970 Wb, limb B peak 1.859 T (steel 1.926 T, H = 1381 A/m, mu_r = 1110)
+  Voc 23.71 V rms (38.10 V peak), distortion 27.6 %, Lm 19.32 mH
+  highest local B in the core at the current peak 1.948 T (steel)
+  core loss 0.76 W (local B map), 0.89 W (limb B everywhere); hysteresis 0.88, eddy 1.12 W/kg
+  equivalent core loss resistance Rfe = 736.0 ohm (secondary side)
+
+Table 15 x 13 FEMM solves; interpolated table vs open circuit: worst error 0.083 % of peak
+
+Resistor RL = 9.88 ohm
+  load 19.55 V, 1.979 A, 38.69 W;  winding loss 4.10 W, core loss 0.63 W;  limb B peak 1.820 T
+  cycle repeats to 2.8e-15 A
+
+Burden sweep
+   RL [ohm]    P [W]   V [V]   I [A]   Bpk [T]   Pcu [W]
+     1.00     13.65    3.69   3.694    0.652    14.28
+     2.00     24.86    7.05   3.526    0.926    13.01
+     4.00     38.97   12.49   3.121    1.359    10.20
+     6.00     43.57   16.17   2.695    1.635     7.60
+     8.00     42.00   18.33   2.291    1.768     5.50
+     9.88     38.69   19.55   1.979    1.820     4.10
+    12.00     34.98   20.49   1.707    1.843     3.05
+    16.00     29.18   21.61   1.350    1.856     1.91
+    24.00     21.46   22.70   0.946    1.858     0.94
+    40.00     13.84   23.53   0.588    1.859     0.36
+Best burden 6.26 ohm: P = 43.63 W, V = 16.53 V, I = 2.639 A, B peak 1.660 T, winding 7.29 W, core 0.46 W
+Efficiency at the best burden: 84.9 % of the power taken from the line (load / (load + winding + core))
+
+Bridge rectifier (Schottky Vf = 0.50 V, rd = 0.03 ohm) into a dc link held at Vdc
+   Vdc [V]  Pdc [W]  Idc [A]  Iac rms  Iac peak  conduction  winding W  diode W
+      4.0    13.01    3.254    3.622    5.139       100 %     13.73     4.04
+      6.0    18.91    3.152    3.512    5.004       100 %     12.91     3.89
+      8.0    24.13    3.017    3.369    4.808       100 %     11.88     3.70
+     10.0    28.61    2.861    3.203    4.600       100 %     10.74     3.48
+     12.0    31.94    2.662    2.995    4.327       100 %      9.39     3.20
+     14.0    32.85    2.347    2.684    3.943        99 %      7.54     2.78
+     16.0    31.41    1.963    2.316    3.489        92 %      5.61     2.29
+     18.0    28.91    1.606    1.964    3.048        85 %      4.04     1.84
+     20.0    25.65    1.282    1.633    2.627        79 %      2.79     1.44
+     24.0    18.20    0.758    1.053    1.827        67 %      1.16     0.82
+Best dc link voltage 13.6 V: Pdc = 33.00 W, Idc = 2.433 A, ac current 2.767 A rms / 4.044 A peak, conduction 100 % of the cycle
+   winding loss 8.01 W, diode loss 2.89 W, core loss 0.42 W, equivalent ac resistance 5.32 ohm
+
+Charger: buck stage 90 % efficient, 2S pack, Rbat = 0.12 ohm, input voltage regulated
+   Vbat   Vdc used   Pdc [W]   Pbat [W]   Ichg [A]   charge time for 3.0 Ah [h]
+    6.0 V     13.6 V     33.00      29.70       4.54        0.7
+    7.4 V     13.6 V     33.00      29.70       3.78        0.7
+    8.4 V     13.6 V     33.00      29.70       3.37        0.7
+
+Saturation, open circuit, 300 A -> 500 A rms (current x1.667)
+  B peak 1.399 -> 1.859 T (x1.329, a linear core gives x1.667)
+  Voc 16.23 -> 23.71 V rms (x1.460)
