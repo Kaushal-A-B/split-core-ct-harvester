@@ -1,0 +1,56 @@
+# Created by Octave 11.3.0, Mon Oct 26 12:55:59 2026 UTC
+# name: M
+# type: scalar
+0.00017253131323656173
+
+
+# name: L2
+# type: scalar
+0.022359245158216481
+
+
+# name: Lm
+# type: scalar
+0.022084008094279902
+
+
+# name: Ls2d
+# type: scalar
+0.00027523706393657935
+
+
+# name: Ls3d
+# type: scalar
+0.00028542014490904271
+
+
+# name: scale
+# type: scalar
+1.0369974916416409
+
+
+# name: K2d
+# type: scalar
+0.23277253022528716
+
+
+# name: Kax
+# type: scalar
+0.15006955655691515
+
+
+# name: K_formula
+# type: scalar
+0.12857142857142856
+
+
+# name: L_formula
+# type: scalar
+0.0001447671497295733
+
+
+# name: mlt
+# type: scalar
+109.37693436516854
+
+

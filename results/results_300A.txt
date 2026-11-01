@@ -1,0 +1,66 @@
+Line current 300 A rms (424.3 A peak), 50 Hz, N2 = 128
+R1 = 0.901 ohm at 75 C (0.741 at 20 C), steel mass 444.6 g
+
+Open circuit
+  lambda2 peak 0.0730 Wb, limb B peak 1.399 T (steel 1.449 T, H = 32 A/m, mu_r = 36378)
+  Voc 16.23 V rms (22.81 V peak), distortion 0.4 %, Lm 22.05 mH
+  highest local B in the core at the current peak 1.658 T (steel)
+  core loss 0.28 W (local B map), 0.33 W (limb B everywhere); hysteresis 0.36, eddy 0.37 W/kg
+  equivalent core loss resistance Rfe = 940.0 ohm (secondary side)
+
+Table 13 x 13 FEMM solves; interpolated table vs open circuit: worst error 0.008 % of peak
+
+Resistor RL = 9.88 ohm
+  load 12.43 V, 1.258 A, 15.64 W;  winding loss 1.43 W, core loss 0.19 W;  limb B peak 1.170 T
+  cycle repeats to 1.8e-15 A
+
+Burden sweep
+   RL [ohm]    P [W]   V [V]   I [A]   Bpk [T]   Pcu [W]
+     1.00      4.97    2.23   2.230    0.366     4.48
+     2.00      9.10    4.27   2.133    0.534     4.10
+     4.00     14.30    7.56   1.891    0.799     3.22
+     6.00     16.22    9.87   1.644    0.979     2.44
+     8.00     16.31   11.42   1.428    1.096     1.84
+     9.88     15.64   12.43   1.258    1.170     1.43
+    12.00     14.59   13.23   1.102    1.227     1.10
+    16.00     12.54   14.16   0.885    1.290     0.71
+    24.00      9.42   15.04   0.627    1.345     0.35
+    40.00      6.11   15.63   0.391    1.378     0.14
+Best burden 7.07 ohm: P = 16.42 W, V = 10.78 V, I = 1.523 A, B peak 1.048 T, winding 2.09 W, core 0.15 W
+Efficiency at the best burden: 88.0 % of the power taken from the line (load / (load + winding + core))
+
+Bridge rectifier (Schottky Vf = 0.50 V, rd = 0.03 ohm) into a dc link held at Vdc
+   Vdc [V]  Pdc [W]  Idc [A]  Iac rms  Iac peak  conduction  winding W  diode W
+      4.0     7.43    1.857    2.071    2.956       100 %      3.87     2.11
+      6.0    10.20    1.699    1.905    2.735       100 %      3.27     1.92
+      8.0    11.91    1.489    1.683    2.452       100 %      2.55     1.66
+     10.0    11.97    1.197    1.383    2.069       100 %      1.72     1.31
+     12.0     9.99    0.832    1.011    1.591        92 %      0.92     0.89
+     14.0     7.43    0.530    0.685    1.147        82 %      0.42     0.56
+     16.0     4.75    0.297    0.415    0.751        70 %      0.16     0.31
+     18.0     2.37    0.132    0.205    0.412        56 %      0.04     0.13
+     20.0     0.65    0.032    0.060    0.145        39 %      0.00     0.03
+     24.0     0.00    0.000    0.000    0.000         0 %      0.00     0.00
+Best dc link voltage 9.1 V: Pdc = 12.20 W, Idc = 1.340 A, ac current 1.530 A rms / 2.256 A peak, conduction 100 % of the cycle
+   winding loss 2.11 W, diode loss 1.48 W, core loss 0.15 W, equivalent ac resistance 6.66 ohm
+
+Charger: buck stage 90 % efficient, 2S pack, Rbat = 0.12 ohm, input voltage regulated
+   Vbat   Vdc used   Pdc [W]   Pbat [W]   Ichg [A]   charge time for 3.0 Ah [h]
+    6.0 V      9.1 V     12.20      10.98       1.77        2.0
+    7.4 V      9.1 V     12.20      10.98       1.45        2.0
+    8.4 V      9.9 V     12.02      10.81       1.26        2.0
+warning: using the gnuplot graphics toolkit is discouraged
+
+The gnuplot graphics toolkit is not actively maintained and has a number
+of limitations that are unlikely to be fixed.  Communication with gnuplot
+uses a one-directional pipe and limited information is passed back to the
+Octave interpreter so most changes made interactively in the plot window
+will not be reflected in the graphics properties managed by Octave.  For
+example, if the plot window is closed with a mouse click, Octave will not
+be notified and will not update its internal list of open figure windows.
+The qt toolkit is recommended instead.
+warning: using the fltk graphics toolkit is discouraged
+
+The FLTK graphics toolkit is not actively maintained and has a number
+of limitations that are unlikely to be fixed.
+The qt toolkit is recommended instead.
