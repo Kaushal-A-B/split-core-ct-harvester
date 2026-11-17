@@ -1,4 +1,4 @@
-% Stage 2 model of the design report: linear core, one joint, 50 Hz harmonic solve.
+% Design report model (Stage 1 of the report): linear core, one joint, 50 Hz harmonic solve.
 % Kept for comparison with the final model. Run from the repo root after addpath('src').
 
 clear; clc;
@@ -74,7 +74,7 @@ mi_addblocklabel(-xn,0); mi_selectlabel(-xn,0); mi_setblockprop('Coil_wire',1,0,
 
 mi_makeABC(7, 120, 0, 0, 0);
 
-mi_saveas(fullfile(modeldir, 'ct_model_v2.fem'));
+mi_saveas(fullfile(modeldir, 'legacy', 'ct_model_v2.fem'));
 mi_analyze(1); mi_loadsolution;
 
 cp = mo_getcircuitproperties('Secondary');

@@ -21,6 +21,13 @@ instead of using FEMM's linear AC solver.
 The steel B-H curve and loss coefficients come from the ATI Allegheny Ludlum grain-oriented steel
 data (2012). They are typical values, not a supplier curve for the actual laminations.
 
+## Report
+
+The full report is in [docs/CT_report.pdf](docs/CT_report.pdf), with the Word version in
+[docs/CT_report.docx](docs/CT_report.docx). It explains the basics, follows the design calculation to
+the final dimensions, gives the cutting dimensions and the simulation, and compares the design report
+with the simulation. The numbers in this README and in `results/` are the ones used in the report.
+
 ## Method
 
 1. `ct_sine_femm` solves the nonlinear magnetostatic problem at stepped values of the line current.
@@ -57,8 +64,9 @@ Other results:
 - Total mass 499.0 g (steel 444.6 g, copper 40.9 g, bobbins 13.6 g).
 - At 500 A the core saturates and the output voltage rises by 46 % for a 67 % rise in current.
 - Moving the conductor up to 3 mm sideways or 4 mm up or down in the window changes the open-circuit
-  flux linkage by 0.06 % at most and the near-short-circuit flux linkage by about 1 % (`ct_offset_study`).
-- A PLA bobbin would soften at 500 A. Use a higher-temperature material.
+  flux linkage by 0.07 % at most and the near-short-circuit flux linkage by about 1 % (`ct_offset_study`).
+- A PLA bobbin would soften at both currents (the winding reaches 64 C at 300 A and PLA softens near
+  60 C). Use PETG, ABS or a resin with a higher temperature rating.
 
 The full printed output of each run is in `results/results_300A.txt` and `results/results_500A.txt`.
 
@@ -75,11 +83,11 @@ The full printed output of each run is in `results/results_300A.txt` and `result
 
 ```
 src/            Octave scripts (ct_setup.m sets paths, ct_params.m holds all data)
-src/legacy/     the stage 2 model from the design report, for comparison
+src/legacy/     ct_femm_model_v2.m, the design report model (Stage 1 of the report), for comparison
 models/         FEMM .fem files written by the scripts
-models/legacy/  original btp.fem and ct_model_v2.fem
+models/legacy/  ct_model_v2.fem, the design report model
 results/        .dat files, printed results and figures written by the scripts
-docs/           written report and model pictures
+docs/           the report (PDF and Word) and model pictures
 ```
 
 ## Running
