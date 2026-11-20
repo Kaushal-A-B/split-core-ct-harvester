@@ -1,10 +1,7 @@
-% 50 Hz line current stepped through FEMM from Octave (the magnetostatic solver has no time axis).
-% The model has no hysteresis, so only a quarter cycle is solved and the rest follows from
-% lambda(-i) = -lambda(i) and lambda(T/2 - t) = lambda(t).
-%
-% Writes ct_oc_<I>A.dat (open circuit cycle, B map at the current peak) and
-% ct_table_<I>A.dat (flux linkage over a grid of line and secondary current).
-% Set I1rms before running, default 300:  octave-cli --eval "I1rms=500; ct_sine_femm"
+% Steps the 50 Hz line current through FEMM, one magnetostatic solve per point. No hysteresis, so
+% only a quarter cycle is solved and the rest follows by symmetry.
+% Writes ct_oc_<I>A.dat and ct_table_<I>A.dat. Set I1rms first (default 300).
+% use_saved_model = true opens models/ct_model_dc.fem (from ct_draw_save) instead of drawing.
 
 1;
 
@@ -32,8 +29,14 @@ if I1rms <= 300, n1 = 13; n2 = 13; else, n1 = 15; n2 = 13; end
 I2max = 1.25*I1pk/N2;
 
 openfemm(1);
-ct_draw_model(0, 0, 0, []);
-mi_saveas(fullfile(modeldir, 'ct_model_dc.fem'));
+mf = fullfile(modeldir, 'ct_model_dc.fem');
+if exist('use_saved_model', 'var') && use_saved_model
+  if ~exist(mf, 'file'), error('ct_sine_femm: %s not found, run ct_draw_save first', mf); end
+  opendocument(mf);
+else
+  ct_draw_model(0, 0, 0, []);
+  mi_saveas(mf);
+end
 
 nq = Nt/4;
 iq = I1pk*sin(2*pi*(0:nq)'/Nt);
