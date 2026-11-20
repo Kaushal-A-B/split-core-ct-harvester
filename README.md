@@ -90,26 +90,6 @@ results/        .dat files, printed results and figures written by the scripts
 docs/           the report (PDF and Word) and model pictures
 ```
 
-## Running
-
-Requirements: GNU Octave 11 with the FEMM 4.2 `octavefemm` interface (default `C:\femm42\mfiles`,
-or set the `FEMM_MFILES` environment variable). Windows only, because FEMM is.
-
-```
-octave-cli --eval "addpath('src'); run_study"
-```
-
-`run_study(true)` skips the FEMM steps and recomputes everything from the saved `.dat` files, which
-takes a few minutes. A full run with FEMM takes noticeably longer (about 200 nonlinear solves per
-current level). Single steps can be run on their own, for example
-
-```
-octave-cli --eval "addpath('src'); I1rms = 500; Tw = 125; ct_load_sim"
-```
-
-`Tw` is the winding temperature used for R1. The 500 A run uses 125 C to match the thermal result.
-To try a different design, edit `src/ct_params.m` and rerun.
-
 ## Assumptions to replace with measurements
 
 - Diode dynamic resistance 0.03 ohm, battery 3 Ah with 0.12 ohm internal resistance.
