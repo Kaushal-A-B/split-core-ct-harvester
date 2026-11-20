@@ -82,10 +82,9 @@ The full printed output of each run is in `results/results_300A.txt` and `result
 ## Repository layout
 
 ```
-src/            Octave scripts (ct_setup.m sets paths, ct_params.m holds all data)
-src/legacy/     ct_femm_model_v2.m, the design report model (Stage 1 of the report), for comparison
-models/         FEMM .fem files written by the scripts
-models/legacy/  ct_model_v2.fem, the design report model
+src/            Octave scripts (ct_setup.m sets paths, ct_params.m holds the design and material data)
+models/         the drawn FEMM models, opened by the scripts (ct_offset_1 to 7 are the conductor positions)
+models/legacy/  ct_model_v2.fem, the design report model (Stage 1 of the report)
 results/        .dat files, printed results and figures written by the scripts
 docs/           the report (PDF and Word) and model pictures
 ```
