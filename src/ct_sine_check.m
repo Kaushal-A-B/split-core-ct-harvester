@@ -1,5 +1,5 @@
 % Re-solves FEMM at the points saved by ct_load_sim and compares them with the interpolated table.
-% Set I1rms (default 300). use_saved_model = true opens models/ct_model_dc.fem instead of drawing.
+% Uses models/ct_model_dc.fem. Set I1rms (default 300).
 
 1;
 
@@ -22,14 +22,7 @@ load(sprintf('ct_check_pts_%dA.dat', I1rms));
 xa = bw/2;  xb = bw/2 + c;
 
 openfemm(1);
-if exist('use_saved_model', 'var') && use_saved_model
-  mf = fullfile(modeldir, 'ct_model_dc.fem');
-  if ~exist(mf, 'file'), error('ct_sine_check: %s not found, run ct_draw_save first', mf); end
-  opendocument(mf);
-else
-  ct_draw_model(0, 0, 0, []);
-  mi_saveas(fullfile(modeldir, 'ct_check.fem'));
-end
+opendocument(fullfile(modeldir, 'ct_model_dc.fem'));
 
 fprintf('RL [ohm]   i1 [A]   i2 [A]   lambda table   lambda FEMM   error [%%]   B table   B FEMM [T]\n');
 err = zeros(size(chk_i, 1), 1);

@@ -1,5 +1,6 @@
 % Flux linkage with the line conductor moved off-centre in the window, open secondary and
-% near short circuit (i2 = -0.9*i1/N2), relative to the centred case.
+% near short circuit (i2 = -0.9*i1/N2), relative to the centred case. One saved model per
+% row of offsets: models/ct_offset_<k>.fem.
 
 clear; clc;
 ct_setup;
@@ -13,8 +14,7 @@ cases = [0, -0.9*I1pk/N2];
 openfemm(1);
 res = zeros(size(offsets, 1), 4);
 for k = 1:size(offsets, 1)
-  ct_draw_model(offsets(k,1), offsets(k,2), 0, []);
-  mi_saveas(fullfile(modeldir, 'ct_offset.fem'));
+  opendocument(fullfile(modeldir, sprintf('ct_offset_%d.fem', k)));
   mi_modifycircprop('Primary', 1, I1pk);
   for q = 1:2
     mi_modifycircprop('Secondary', 1, cases(q));

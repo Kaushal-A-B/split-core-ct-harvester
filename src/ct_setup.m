@@ -1,4 +1,4 @@
-% Paths shared by all scripts. Outputs go to results/, FEMM models to models/.
+% Paths shared by all scripts. Outputs go to results/, FEMM models are read from models/.
 src = fileparts(mfilename('fullpath'));
 root = fileparts(src);
 outdir = fullfile(root, 'results');

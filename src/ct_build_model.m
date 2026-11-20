@@ -1,4 +1,4 @@
-% Draws the CT, solves it at 50 Hz with a linear core and compares Lm and Voc with a hand calculation.
+% Solves the linear 50 Hz model (models/ct_model_ac.fem) and compares Lm and Voc with a hand calculation.
 
 clear; clc;
 ct_setup;
@@ -7,8 +7,7 @@ ct_params;
 mu_lin = 42345;
 
 openfemm(1);
-ct_draw_model(0, 0, f, mu_lin);
-mi_saveas(fullfile(modeldir, 'ct_model_ac.fem'));
+opendocument(fullfile(modeldir, 'ct_model_ac.fem'));
 mi_analyze(1);
 mi_loadsolution;
 

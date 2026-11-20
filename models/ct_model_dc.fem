@@ -331,13 +331,13 @@
 [CircuitProps]  = 2
   <BeginCircuit>
     <CircuitName> = "Primary"
-    <TotalAmps_re> = 707.10678118654755
+    <TotalAmps_re> = 424.26406871192853
     <TotalAmps_im> = 0
     <CircuitType> = 1
   <EndCircuit>
   <BeginCircuit>
     <CircuitName> = "Secondary"
-    <TotalAmps_re> = 6.9053396600248789
+    <TotalAmps_re> = 0
     <TotalAmps_im> = 0
     <CircuitType> = 1
   <EndCircuit>
@@ -448,10 +448,10 @@
 42	43	-1	0	0	0
 43	38	-1	0	0	0
 [NumArcSegments] = 20
-16	17	180	2.5	0	0	0	2.5
-17	16	180	2.5	0	0	0	2.5
-18	19	180	2.5	0	0	0	2.5
-19	18	180	2.5	0	0	0	2.5
+16	17	180	2.5	0	0	0	1
+17	16	180	2.5	0	0	0	1
+18	19	180	2.5	0	0	0	1
+19	18	180	2.5	0	0	0	1
 44	45	180	1	0	0	0	1
 45	44	180	1	0	0	0	1
 46	47	180	1	0	0	0	1
