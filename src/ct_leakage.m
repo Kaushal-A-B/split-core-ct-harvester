@@ -1,10 +1,9 @@
-% Secondary leakage inductance including end turns.
-%   1  2D harmonic solve with a linear core: M from the line current, L2 from the secondary
-%      alone; leakage = L2 - N2*M.
-%   2  Leakage energy outside the iron (mu_r = 1e5, no joints) for the 2D coil and for the same
-%      coil on a round limb of equal area in an axisymmetric model. K = L/(mu0 N^2 MLT).
-%   3  The 2D model sees only the straight sides, so the leakage is scaled to the real mean turn
-%      with the K ratio of part 2 and compared with L = mu0 N^2 MLT (a + b/3)/h.
+% Secondary leakage inductance with end turns.
+%   1  2D harmonic solve, linear core: leakage = L2 - N2*M.
+%   2  Energy outside the iron in the 2D model and in an axisymmetric model of the same coil on a
+%      round limb, K = L/(mu0 N^2 MLT).
+%   3  The 2D model only sees the straight sides, so scale to the real mean turn with the K ratio
+%      and compare with L = mu0 N^2 MLT (a + b/3)/h.
 
 1;
 

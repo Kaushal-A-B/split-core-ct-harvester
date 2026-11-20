@@ -1,15 +1,12 @@
-% Loaded runs of the CT (Octave only, FEMM is not called). Uses ct_oc_<I>A.dat and ct_table_<I>A.dat
-% from ct_sine_femm.m.
+% Loaded runs of the CT (Octave only). Needs ct_oc_<I>A.dat and ct_table_<I>A.dat from ct_sine_femm.
 %
-% The secondary is stepped in time with
-%     d(lambda2)/dt = -R1*i2 + vt,    lambda2 = F(i1, i2) from the FEMM table
-% i2 is the FEMM circuit current, so the current leaving the winding is -i2.
+% The secondary is stepped in time with d(lambda2)/dt = -R1*i2 + vt, lambda2 = F(i1, i2) from the
+% FEMM table. i2 is the FEMM circuit current, so the load current is -i2.
 %     resistor:  vt = -RL*i2
 %     bridge:    vt = +-(Vdc + 2*Vf + 2*rd*|i2|) while two diodes conduct, i2 = 0 otherwise
 % Core loss is a resistance Rfe across the induced voltage, so F is evaluated at i1 - N2*e/Rfe.
 %
-% Set I1rms (default 300) and Tw, the winding temperature for R1 (default 75 C), before running.
-% Writes results_<I>A.txt, ct_res_<I>A.dat, ct_check_pts_<I>A.dat and the figures.
+% Set I1rms (default 300) and Tw, the winding temperature for R1 (default 75 C).
 
 1;
 

@@ -1,10 +1,7 @@
 function [P, Ph, Pe] = ct_core_loss(Bpk, shape, f)
-% Core loss density (W/kg) of 0.27 mm M-4 at frequency f.
-%   Bpk    peak flux density (T), scalar or vector
-%   shape  one cycle of the B waveform, any amplitude
-% Hysteresis scales with f, eddy loss with the mean square of dB/dt, so a
-% flat-topped (saturated) wave is charged for its steep edges. Coefficients
-% come from ct_params.m and are extrapolated log-log outside 1.0 to 1.8 T.
+% Core loss (W/kg) of 0.27 mm M-4. Bpk is the peak flux density, shape one cycle of the B wave.
+% Eddy loss follows the mean square of dB/dt, so a flattened wave pays for its steep edges.
+% Coefficients from ct_params.m, extrapolated log-log outside 1.0 to 1.8 T.
 
 ct_params;
 
