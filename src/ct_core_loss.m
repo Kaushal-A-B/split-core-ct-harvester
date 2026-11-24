@@ -1,7 +1,7 @@
 function [P, Ph, Pe] = ct_core_loss(Bpk, shape, f)
 % Core loss (W/kg) of 0.27 mm M-4. Bpk is the peak flux density, shape one cycle of the B wave.
 % Eddy loss follows the mean square of dB/dt, so a flattened wave pays for its steep edges.
-% Coefficients from ct_params.m, extrapolated log-log outside 1.0 to 1.8 T.
+% Coefficients from ct_params.m, extrapolated log-log outside 1 to 1.8 T.
 
 ct_params;
 
