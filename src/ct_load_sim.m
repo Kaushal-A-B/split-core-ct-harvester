@@ -1,5 +1,4 @@
 % Loaded runs of the CT (Octave only). Needs ct_oc_<I>A.dat and ct_table_<I>A.dat from ct_sine_femm.
-%
 % The secondary is stepped in time with d(lambda2)/dt = -R1*i2 + vt, lambda2 = F(i1, i2) from the
 % FEMM table. i2 is the FEMM circuit current, so the load current is -i2.
 %     resistor:  vt = -RL*i2
